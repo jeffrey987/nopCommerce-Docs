@@ -1,16 +1,16 @@
 body {
   max-width: 100%;
   overflow-x: hidden;
+  font: 400 16px 'Mukta', open sans,Myriad Pro Regular,sans-serif;
   background-color: #fff;
-  font: 400 14px open sans,Myriad Pro Regular,sans-serif;
-  color: #777;
+  color: #363e4e;
   line-height: 2em;
 }
 
 /* HEADINGS */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: roboto slab;
+  font-family: 'Arvo';
   font-weight: 400;
   color: #333;
   padding: 15px 0
@@ -26,25 +26,12 @@ h3 {
 
 /* NAVBAR */
 .navbar-default {
-  background-color: #fff;
-  border-color: #e7e7e7;
+  background-color: transparent;
+  border: none;
 }
 
 .navbar-brand>img {
   color: #fff;
-}
-
-.navbar {
-  border: none;
-  /* Both navbars use box-shadow */
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(100, 100, 100, 0.5);
-  -moz-box-shadow: 0px 1px 3px 0px rgba(100, 100, 100, 0.5);
-  box-shadow: 0px 1px 3px 0px rgba(100, 100, 100, 0.5);
-}
-
-.subnav {
-  border-top: 1px solid #ddd;
-  background-color: #fff;
 }
 
 .navbar-inverse {
@@ -76,12 +63,7 @@ h3 {
 }
 
 .navbar-form .form-control {
-  border: none;
   border-radius: 20px;
-}
-
-.navbar-right {
-  padding: 25px 0;
 }
 
 /* LINKS */
@@ -91,9 +73,7 @@ a:active {
 }
 
 a {
-  font-weight: 400;
-  color: #0856a5;
-  color: #4ab2f1;
+  color: #25c8e0;
   cursor: pointer;
 }
 
@@ -102,21 +82,23 @@ a {
       border: none
   }
 
+  button:hover, button:focus, a:hover, a:focus {
+    color: #25c8e0;
+  }
+
 /* HEADER */
 
 header {
-  background: white
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0,.1);
+  -moz-box-shadow: 0 2px 10px 0 rgba(0,0,0,.1);
+  
 }
 
 .header {
     margin: 0 auto;
     padding: 25px 0;
-}
-
-  @media screen and (max-width: 1079px) {
-  .header {
-      width: 100%;
-  }
 }
 
 .header-logo {
@@ -136,6 +118,10 @@ header {
           max-width: 100%;
           opacity: 1
       }
+
+.sidenav {
+  overflow: hidden;
+}
 
 /* ALERTS */
 
@@ -176,13 +162,42 @@ header {
 }
 
 /* SIDEBAR */
-
-.toc .level1 > li {
-  font-weight: 400;
+.toc ul.level1 {
+  margin: 0 0 0 3px;
+}
+.toc ul {
+  margin: 0 0 0 10px;
+  font-size: 16px;
 }
 
-.toc .nav > li > a {
-  color: #34393e;
+.toc li {
+  margin: 0.5em 0;
+}
+
+.toc .level1 > li {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.toc .level2 {
+  font-size: 16px;
+}
+
+.toc .nav > li > a,  .toc .nav > li > span{
+  color: #363e4e;
+  line-height: 1.5em;
+}
+
+.toc .nav > li > a:hover, .toc .nav > li > a:focus {
+  color: #25c8e0;
+}
+
+.toc .nav > li.active > a {
+  color: #25c8e0;
+}
+
+.toc .nav > li.active > a:hover, .toc .nav > li.active > a:focus {
+  color: #25c8e0;
 }
 
 .sidefilter {
@@ -191,7 +206,6 @@ header {
   border-right: none;
   top: 150px;
 }
-
 
 .toc-filter {
   padding: 10px;
@@ -218,6 +232,28 @@ header {
   top: 240px;
 }
 
+.sideaffix {
+  font-size: 14px;
+  top: 120px;
+}
+
+.affix h5 {
+  font-weight: bold;
+  font-family: 'Mukta';
+  text-transform: uppercase;
+}
+
+.affix > ul > li > a:before {
+  top: 5px;
+}
+
+.affix > ul.level1 {
+  line-height: 1.5em;
+}
+
+.sideaffix > div.contribution > ul > li > a.contribution-link {
+  font-size: 16px;
+}
 
 /* CODE HIGHLIGHT */
 pre {
@@ -225,12 +261,20 @@ pre {
 }
 
 .breadcrumb {
-  padding: 13px 0
+  padding: 13px 0;
+  text-align: center;
 }
   .breadcrumb > li + li:before {
     content: "\003E";
-    color:  #41afef;
+    color:  #363d4e;
     margin: 0 5px;
+  }
+
+  .breadcrumb li * {
+      display: inline-block;
+      margin: 0 5px;
+      font-size: 14px;
+      line-height: 32px;
   }
 
   .breadcrumb span {
@@ -238,14 +282,14 @@ pre {
       margin: 0 5px;
       font-size: 11px;
       line-height: 32px;
-      color: #41afef;
+      color: #25c8e0;
       text-transform: uppercase;
   }
 
   .breadcrumb a {
-      color: #41afef;
-      text-transform: uppercase;
-      font-size: 11px;
+      color: #363d4e;
+      font-size: 16px;
+
   }
 
 /* ARTICLE */
@@ -287,7 +331,7 @@ pre {
 }
 
   .contributorsInfo * {
-    font-family: roboto slab;
+    font-family: 'Arvo';
   }
 
   .contributorsInfo ul, .contributorsInfo ol {
@@ -295,9 +339,9 @@ pre {
     padding: 0;
   }
 
-  .contributorsInfo time {
+  /* .contributorsInfo time {
     font-weight: bold;
-  }
+  } */
 
   .contribution {
     display: flex;
@@ -357,7 +401,7 @@ pre {
     background: none;
   }
 
-  .toc {    
+  .toc {
     text-align: left;
   }
 
@@ -371,4 +415,96 @@ pre {
   .toc .nav > li, .toc .nav > li >a {
     display: block;
   }
+}
+
+.lang-container {
+  padding: 13px 0;
+  margin: auto 10px;
+}
+
+/* class applies to select element itself, not a wrapper element */
+.select-css {
+	display: block;
+	color: #444;
+	line-height: 1.3;
+	padding: .6em 1.6em .5em .8em;
+	width: 100%;
+	max-width: 100%; /* useful when width is set to anything other than 100% */
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: .3em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	/* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+		for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+
+	*/
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+	background-repeat: no-repeat, repeat;
+	/* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+	background-position: right .7em top 50%, 0 0;
+	/* icon size, then gradient */
+	background-size: .65em auto, 100%;
+}
+/* Hide arrow icon in IE browsers */
+.select-css::-ms-expand {
+	display: none;
+}
+/* Hover style */
+.select-css:hover {
+	border-color: #888;
+}
+
+/* Set options to normal weight */
+.select-css option {
+	font-weight:normal;
+}
+
+/* Support for rtl text, explicit support for Arabic and Hebrew */
+*[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+	background-position: left .7em top 50%, 0 0;
+	padding: .6em .8em .5em 1.4em;
+}
+
+/* Disabled styles */
+.select-css:disabled, .select-css[aria-disabled=true] {
+	color: graytext;
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+}
+
+.select-css:disabled:hover, .select-css[aria-disabled=true] {
+	border-color: #aaa;
+}
+
+.toc-filter > .clear-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.form-control {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+  color: #363e4e!important;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0!important;
+  width: 100%;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: #25c8e0;
+  box-shadow: none;
 }

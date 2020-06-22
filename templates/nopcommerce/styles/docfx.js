@@ -7,7 +7,7 @@ $(function () {
   var show = 'show';
   var hide = 'hide';
   var util = new utility();
-  
+
   workAroundFixedHeaderForAnchors();
   highlight();
   enableSearch();
@@ -24,6 +24,8 @@ $(function () {
   breakText();
   renderTabs();
 
+  langSwitch();
+
   window.refresh = function (article) {
     // Update markup result
     if (typeof article == 'undefined' || typeof article.content == 'undefined')
@@ -39,6 +41,21 @@ $(function () {
 
   // Add this event listener when needed
   // window.addEventListener('content-update', contentUpdate);
+
+  function langSwitch() {
+    $("#lang-switcher").on('change', function (e) {
+      var selectedLang = this.value.substring(0, 3);
+      var langs = $('option', this).map(function (e) { return $(this).val(); }).get();
+
+      var currentLocationPathname = window.location.pathname;
+
+      if (currentLocationPathname.startsWith(selectedLang))
+        return;
+
+      window.location.href = currentLocationPathname.replace(/^\/[A-Z]{2}/i, selectedLang);
+
+    });
+  }
 
   function breakText() {
     $(".xref").addClass("text-break");
@@ -349,11 +366,11 @@ $(function () {
       renderBreadcrumb();
       showSearch();
     }
-    
+
     function showSearch() {
       if ($('#search-results').length !== 0) {
-          $('#search').show();
-          $('body').trigger("searchEvent");
+        $('#search').show();
+        $('body').trigger("searchEvent");
       }
     }
 
@@ -435,20 +452,29 @@ $(function () {
     }
 
     function registerTocEvents() {
+      var tocFilterInput = $('#toc_filter_input');
+      var tocFilterClearButton = $('#toc_filter_clear');
+        
       $('.toc .nav > li > .expand-stub').click(function (e) {
         $(e.target).parent().toggleClass(expanded);
       });
       $('.toc .nav > li > .expand-stub + a:not([href])').click(function (e) {
         $(e.target).parent().toggleClass(expanded);
       });
-      $('#toc_filter_input').on('input', function (e) {
+      tocFilterInput.on('input', function (e) {
         var val = this.value;
+        //Save filter string to local session storage
+        if (typeof(Storage) !== "undefined") {
+          sessionStorage.filterString = val;
+        }
         if (val === '') {
           // Clear 'filtered' class
           $('#toc li').removeClass(filtered).removeClass(hide);
+          tocFilterClearButton.fadeOut();
           return;
         }
-
+        tocFilterClearButton.fadeIn();
+        
         // Get leaf nodes
         $('#toc li>a').filter(function (i, e) {
           return $(e).siblings().length === 0
@@ -489,6 +515,22 @@ $(function () {
           return false;
         }
       });
+      
+      // toc filter clear button
+      tocFilterClearButton.hide();
+      tocFilterClearButton.on("click", function(e){
+        tocFilterInput.val("");
+        tocFilterInput.trigger('input');
+        if (typeof(Storage) !== "undefined") {
+          sessionStorage.filterString = "";
+        }
+      });
+
+      //Set toc filter from local session storage on page load
+      if (typeof(Storage) !== "undefined") {
+        tocFilterInput.val(sessionStorage.filterString);
+        tocFilterInput.trigger('input');
+      }
     }
 
     function loadToc() {
@@ -552,7 +594,7 @@ $(function () {
       if ($('footer').is(':visible')) {
         $(".sideaffix").css("bottom", "70px");
       }
-      $('#affix a').click(function(e) {
+      $('#affix a').click(function (e) {
         var scrollspy = $('[data-spy="scroll"]').data()['bs.scrollspy'];
         var target = e.target.hash;
         if (scrollspy && target) {
@@ -1138,14 +1180,14 @@ $(function () {
 
     $(window).on('hashchange', scrollToCurrent);
 
-    $(window).load(function () {
-        // scroll to the anchor if present, offset by the header
-        scrollToCurrent();
+    $(window).on('load', function () {
+      // scroll to the anchor if present, offset by the header
+      scrollToCurrent();
     });
 
     $(document).ready(function () {
-        // Exclude tabbed content case
-        $('a:not([data-tab])').click(function (e) { delegateAnchors(e); });
+      // Exclude tabbed content case
+      $('a:not([data-tab])').click(function (e) { delegateAnchors(e); });
     });
   }
 });
