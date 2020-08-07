@@ -206,11 +206,8 @@
           href: running-your-store/catalog/products/index.md
           items:
             -
-              name: Add product (for beginners)
-              href: running-your-store/catalog/products/add-product-for-beginners.md
-            -
-              name: Add product (for advanced users)
-              href: running-your-store/catalog/products/add-product-for-advanced-users.md
+              name: Add products
+              href: running-your-store/catalog/products/add-products.md
             -
               name: Product attributes
               href: running-your-store/catalog/products/product-attributes.md
@@ -283,7 +280,7 @@
           name: Customer roles
           href: running-your-store/customer-management/customer-roles.md
         -
-          name: Access control List
+          name: Access control list
           href: running-your-store/customer-management/access-control-list.md
         -
           name: Activity log
@@ -361,7 +358,7 @@
           name: Message templates
           href: running-your-store/content-management/message-templates.md
     -
-      name: Search engine optimization
+      name: Search engine optimization (SEO)
       href: running-your-store/search-engine-optimization.md
     -
       name: Reports
@@ -489,10 +486,10 @@
           href: developer/plugins/shipping-plugin.md
         - 
           name: Plugin with data access
-          href: developer/plugins/plugin-with-data-access-4.30.md
+          href: developer/plugins/plugin-with-data-access.md
         - 
           name: Plugin with data access (4.20 and below)
-          href: developer/plugins/plugin-with-data-access.md
+          href: developer/plugins/plugin-with-data-access-4.20.md
         - 
           name: How to add a menu item into the administration area from a plugin
           href: developer/plugins/menu-item.md

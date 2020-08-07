@@ -17,7 +17,7 @@ In order to run nopCommerce, you will need the following installed on your serve
 
 * Linux
     * Red Hat 6 / CentOS 7 or above
-    * Fedora 30 or aboveor
+    * Fedora 30 or above or
     * Debian 9 or above / Ubuntu 18.04 or above / Linux Mint 18 or above
     * OpenSUSE 15 or above / SUSE Enterprise SUSE Enterprise or above
     * Alpine Linux 3.10 or above
@@ -57,4 +57,4 @@ In order to run nopCommerce, you will need the following installed on your serve
 
 > [!NOTE]
 > 
-> If you're going to use the multi-store feature with SSL, then Windows Server 2012 with IIS 8 is required because it supports SNI (Server Name Indication).
+> If you're installing nopCommerce on Windows and going to use the multi-store feature with SSL, then Windows Server 2012 with IIS 8 is required because it supports SNI (Server Name Indication).
